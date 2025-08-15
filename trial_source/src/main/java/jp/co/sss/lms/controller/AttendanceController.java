@@ -1,6 +1,7 @@
 package jp.co.sss.lms.controller;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,7 +100,7 @@ public class AttendanceController {
 
 		return "attendance/detail";
 	}
-
+	
 	/**
 	 * 勤怠管理画面 『勤怠情報を直接編集する』リンク押下
 	 * 
@@ -141,7 +142,18 @@ public class AttendanceController {
 				.getAttendanceManagement(loginUserDto.getCourseId(), loginUserDto.getLmsUserId());
 		model.addAttribute("attendanceManagementDtoList", attendanceManagementDtoList);
 
+		//件数取得
+		//	int notEnterdCount = studentAttendanceService.NotEnteredAttendanceCount();
+		
+		//件数1件以上判別
+		//	boolean message = notEnteredCount > 0;
+
+		model.addAttribute("message",message);
+		
+		
 		return "attendance/detail";
 	}
+	
+	SimpleDateFormat datedate = new SimpleDateFormat();
 
 }
