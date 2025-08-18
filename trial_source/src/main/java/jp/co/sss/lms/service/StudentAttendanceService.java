@@ -335,6 +335,7 @@ public class StudentAttendanceService {
 		return messageUtil.getMessage(Constants.PROP_KEY_ATTENDANCE_UPDATE_NOTICE);
 	}
 	
+	//勤怠情報の未入力の件数を取得
 	public Integer getNotEnterCount(Integer lmsUserId) {
 	    try {
 	        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
