@@ -133,6 +133,51 @@ public class AttendanceUtil {
 	}
 
 	/**
+	 * 時間取得
+	 * 
+	 * @return 時間
+	 */
+	public LinkedHashMap<Integer, String> setTime() {
+		LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
+		map.put(null, "");
+		for (int i = 0; i < 24;) {
+			String time;
+			
+			if( i < 10){
+				time = "0" + i;
+			} else {
+				time = String.valueOf(i);
+			}
+			map.put(i, time);
+			i = i + 1;
+		}
+		return map;
+	}
+
+/**
+	 * 分取得
+	 * 
+	 * @return 分
+	 */
+	public LinkedHashMap<Integer, String> setMinites() {
+		LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
+		map.put(null, "");
+		for (int i = 0; i < 60;) {
+			String time;
+			
+			 if( i < 10){
+			 	time = "0" + i;
+			 } else {
+			 	time = String.valueOf(i);
+			 }
+			map.put(i, time);
+			i = i + 1;
+		}
+		return map;
+	}
+	
+	
+	/**
 	 * 研修日の判定
 	 * 
 	 * @param courseId
