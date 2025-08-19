@@ -22,11 +22,11 @@ public class AttendanceManagementDto extends StudentAttendanceDto {
 	/** セクション名 */
 	private String sectionName;
 	/* 出勤時間（時）*/
-	private String startTimesValue;
+	private String trainingStartHour;
 	/* 出勤時間（分）*/
-	private String startMinutesValue;
+	private String trainingStartMinute;
 	/* 退勤時間（時）*/
-	private String endTimesValue;
+	private String trainingEndHour;
 	/* 退勤時間（分）*/
-	private String endMinutesValue;
+	private String trainingEndMinute;
 }

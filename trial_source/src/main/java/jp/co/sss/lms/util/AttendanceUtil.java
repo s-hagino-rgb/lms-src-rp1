@@ -140,16 +140,13 @@ public class AttendanceUtil {
 	public LinkedHashMap<Integer, String> setTime() {
 		LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
 		map.put(null, "");
-		for (int i = 0; i < 24;) {
-			String time;
+		for (int i = 0; i < 24; i++) {
 			
 			if( i < 10){
-				time = "0" + i;
+				map.put(i, "0" + i);
 			} else {
-				time = String.valueOf(i);
+				map.put(i,String.valueOf(i));
 			}
-			map.put(i, time);
-			i = i + 1;
 		}
 		return map;
 	}
@@ -159,19 +156,15 @@ public class AttendanceUtil {
 	 * 
 	 * @return 分
 	 */
-	public LinkedHashMap<Integer, String> setMinites() {
+	public LinkedHashMap<Integer, String> setMinite() {
 		LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
 		map.put(null, "");
-		for (int i = 0; i < 60;) {
-			String time;
-			
+		for (int i = 0; i < 60; i++) {
 			 if( i < 10){
-			 	time = "0" + i;
+				map.put(i, "0" + i);
 			 } else {
-			 	time = String.valueOf(i);
+				map.put(i, String.valueOf(i));
 			 }
-			map.put(i, time);
-			i = i + 1;
 		}
 		return map;
 	}

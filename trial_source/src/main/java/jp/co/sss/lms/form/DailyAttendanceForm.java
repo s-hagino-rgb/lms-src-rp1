@@ -47,12 +47,12 @@ public class DailyAttendanceForm {
 	/** インデックス */
 	private String index;
 	/** 出勤時間（時）*/
-	private String startTime;
+	private String trainingStartHhValue;
 	/** 出勤時間（分）*/
-	private String startMinutes;	
+	private String trainingStartMmValue;	
 	/** 退勤時間（時）*/
-	private String endTime;
+	private String trainingEndHhValue;
 		/** 退勤時間（分）*/
-	private String endMinutes;	
+	private String trainingEndMmValue;	
 
 }
