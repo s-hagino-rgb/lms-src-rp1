@@ -35,5 +35,6 @@ public class AttendanceForm {
 	private LinkedHashMap<Integer, String> trainingTimeMi;
 	/** 日次の勤怠フォームリスト */
 	private List<DailyAttendanceForm> attendanceList;
+	
 
 }

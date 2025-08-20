@@ -220,7 +220,12 @@ public class StudentAttendanceService {
 		attendanceForm.setUserName(loginUserDto.getUserName());
 		attendanceForm.setLeaveFlg(loginUserDto.getLeaveFlg());
 		attendanceForm.setBlankTimes(attendanceUtil.setBlankTime());
-
+		//Task26 start
+		//時間と分のマップを取得
+		attendanceForm.setTrainingTimeHh(attendanceUtil.setTrainingTimeHh());
+		attendanceForm.setTrainingTimeMi(attendanceUtil.setTrainingTimeMi());
+		// Task26 end
+		
 		// 途中退校している場合のみ設定
 		if (loginUserDto.getLeaveDate() != null) {
 			attendanceForm
@@ -239,6 +244,38 @@ public class StudentAttendanceService {
 			dailyAttendanceForm
 					.setTrainingStartTime(attendanceManagementDto.getTrainingStartTime());
 			dailyAttendanceForm.setTrainingEndTime(attendanceManagementDto.getTrainingEndTime());
+
+			//Task26
+			// 出勤時間
+			if (dailyAttendanceForm.getTrainingStartTime() != null &&
+					dailyAttendanceForm.getTrainingStartTime() != "" &&
+					dailyAttendanceForm.getTrainingStartTime().length() != 0) {
+				//出勤時間（時）
+				dailyAttendanceForm.setTrainingStartHour(attendanceUtil.getTrainingHour(
+						attendanceManagementDto.getTrainingStartTime()));
+				//出勤時間（分）
+				dailyAttendanceForm.setTrainingStartMinute(attendanceUtil.getTrainingMinute(
+						attendanceManagementDto.getTrainingStartTime()));
+				
+				
+				//画面表示
+				dailyAttendanceForm.setTrainingStartDisTime(attendanceUtil.getIntegerHour(
+						dailyAttendanceForm.getTrainingStartHour()));
+				dailyAttendanceForm.setTrainingStartMmValue(attendanceUtil.getIntegerMinute(
+						dailyAttendanceForm.getTrainingStartMinute()));
+				
+				
+			}else {
+				dailyAttendanceForm.setTrainingStartDisHour("");
+				dailyAttendanceForm.setTrainingStartDisMinute("");
+				dailyAttendanceForm.setTrainingStartHour(null);
+				dailyAttendanceForm.setTrainingStartMinute(null);
+				
+			
+			}
+			
+			//
+			
 			if (attendanceManagementDto.getBlankTime() != null) {
 				dailyAttendanceForm.setBlankTime(attendanceManagementDto.getBlankTime());
 				dailyAttendanceForm.setBlankTimeValue(String.valueOf(
@@ -253,6 +290,9 @@ public class StudentAttendanceService {
 			dailyAttendanceForm.setStatusDispName(attendanceManagementDto.getStatusDispName());
 
 			attendanceForm.getAttendanceList().add(dailyAttendanceForm);
+			
+		//task26 時間と分　休憩時間みたいに表示
+			
 		}
 
 		return attendanceForm;

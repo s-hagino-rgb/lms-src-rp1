@@ -1,6 +1,8 @@
 package jp.co.sss.lms.util;
 
 import java.text.ParseException;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.LinkedHashMap;
 
@@ -9,7 +11,6 @@ import org.springframework.stereotype.Component;
 
 import jp.co.sss.lms.enums.AttendanceStatusEnum;
 import jp.co.sss.lms.mapper.MSectionMapper;
-
 /**
  * 勤怠管理のユーティリティクラス
  * 
@@ -133,11 +134,11 @@ public class AttendanceUtil {
 	}
 
 	/**
-	 * 時間取得
+	 *  Task26 時間取得
 	 * 
 	 * @return 時間
 	 */
-	public LinkedHashMap<Integer, String> setTime() {
+	public LinkedHashMap<Integer, String> setTrainingTimeHh() {
 		LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
 		map.put(null, "");
 		for (int i = 0; i < 24; i++) {
@@ -152,11 +153,11 @@ public class AttendanceUtil {
 	}
 
 /**
-	 * 分取得
+	 * Task26 分取得
 	 * 
 	 * @return 分
 	 */
-	public LinkedHashMap<Integer, String> setMinite() {
+	public LinkedHashMap<Integer, String> setTrainingTimeMi() {
 		LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
 		map.put(null, "");
 		for (int i = 0; i < 60; i++) {
@@ -184,5 +185,49 @@ public class AttendanceUtil {
 		}
 		return false;
 	}
-
+	
+	/**
+	 * Task26 開始時刻(hh;mm)を時(hh)に分割
+	 * 
+	 * @return 時
+	 */
+	
+	public Integer getTrainingHour(String trainingStartTime) {
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+		LocalTime time = LocalTime.parse(trainingStartTime, formatter);
+		Integer integerHour = time.getHour();
+	
+		return integerHour;
+	}
+	
+	
+	/**
+	 * Task26 開始時刻(hh;mm)を分(mm)に分割
+	 * 
+	 * @return 分
+	 */
+	
+	public Integer getTrainingMinute(String trainingStartTime) {
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+		LocalTime time = LocalTime.parse(trainingStartTime, formatter);
+		Integer integerMinute = time.getMinute();
+		
+		return integerMinute;
+		
+	}
+	
+	public Integer getIntegerHour(String integerHour) {
+		
+		String Hour = integerHour;	
+		return Hour;
+	}
+	
+	public Integer getIntegerMinute(String integerMinute) {
+		
+		String Minute = integerMinute;	
+		return Minute
+	}
 }
+	
