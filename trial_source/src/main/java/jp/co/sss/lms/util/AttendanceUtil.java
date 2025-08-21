@@ -218,16 +218,18 @@ public class AttendanceUtil {
 		
 	}
 	
-	public Integer getIntegerHour(String integerHour) {
+	 public String getIntegerHour(Integer integerHour) {
+	 
 		
-		String Hour = integerHour;	
+		String Hour = String.valueOf(integerHour);	
 		return Hour;
 	}
 	
-	public Integer getIntegerMinute(String integerMinute) {
+	public String getIntegerMinute(Integer integerMinute) {
 		
-		String Minute = integerMinute;	
-		return Minute
+		String Minute = String.valueOf(integerMinute);	
+		return Minute;
 	}
+	
 }
 	

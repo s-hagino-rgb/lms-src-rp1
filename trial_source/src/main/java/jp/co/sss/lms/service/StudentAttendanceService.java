@@ -259,7 +259,7 @@ public class StudentAttendanceService {
 				
 				
 				//画面表示
-				dailyAttendanceForm.setTrainingStartDisTime(attendanceUtil.getIntegerHour(
+				dailyAttendanceForm.setTrainingStartHhValue(attendanceUtil.getIntegerHour(
 						dailyAttendanceForm.getTrainingStartHour()));
 				dailyAttendanceForm.setTrainingStartMmValue(attendanceUtil.getIntegerMinute(
 						dailyAttendanceForm.getTrainingStartMinute()));
@@ -270,8 +270,6 @@ public class StudentAttendanceService {
 				dailyAttendanceForm.setTrainingStartDisMinute("");
 				dailyAttendanceForm.setTrainingStartHour(null);
 				dailyAttendanceForm.setTrainingStartMinute(null);
-				
-			
 			}
 			
 			//
@@ -290,8 +288,6 @@ public class StudentAttendanceService {
 			dailyAttendanceForm.setStatusDispName(attendanceManagementDto.getStatusDispName());
 
 			attendanceForm.getAttendanceList().add(dailyAttendanceForm);
-			
-		//task26 時間と分　休憩時間みたいに表示
 			
 		}
 
