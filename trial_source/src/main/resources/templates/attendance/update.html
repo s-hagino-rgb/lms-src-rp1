@@ -51,7 +51,7 @@
 
 <!-- task26 start -->								 
 								<td class="w240">
-									<dvi class = "form-inline">
+									<div class = "form-inline">
 										<select th:name="|attendanceList[${stat.index}].trainingStartHour|" class="form-control">
 											<option th:each="startHh : ${attendanceForm.trainingTimeHh}" th:value="${startHh.key}" th:inlne="text" class="form-control" 
 												th:selected="${startHh.key == dailyAttendanceForm.trainingStartHhValue}">[[${startHh.value}]]</option>
@@ -61,11 +61,11 @@
 											<option th:each="startMi : ${attendanceForm.trainingTimeMi}" th:value="${startMi.key}" th:inlne="text" class="form-control" 
 												th:selected="${startMi.key == dailyAttendanceForm.trainingStartMmValue}">[[${startMi.value}]]</option>
 										</select>
-									</dvi>
+									</div>
 								</td>
 								
 								<td class="w240">
-									<dvi class = "form-inline">
+									<div class = "form-inline">
 										<select th:name="|attendanceList[${stat.index}].trainingEndHour|" class="form-control">
 											<option th:each="endHh : ${attendanceForm.trainingTimeHh}" th:value="${endHh.key}" th:inlne="text" class="form-control" 
 												th:selected="${endHh.key == dailyAttendanceForm.trainingEndHhValue}">[[${endHh.value}]]</option>
@@ -75,19 +75,9 @@
 											<option th:each="endMi : ${attendanceForm.trainingTimeMi}" th:value="${endMi.key}" th:inlne="text" class="form-control" 
 												th:selected="${endMi.key == dailyAttendanceForm.trainingEndMmValue}">[[${endMi.value}]]</option>
 										</select>
-									</dvi>
+									</div>
 								</td>
-								<!-- 
- 								<td class="w70">	
-									<input type="text" th:name="|attendanceList[${stat.index}].trainingStartTime|"
-									th:value="${dailyAttendanceForm.trainingStartTime}" class="form-control" />
-								</td>
-								 
-								<td class="w70">
-									<input type="text" th:name="|attendanceList[${stat.index}].trainingEndTime|"
-									th:value="${dailyAttendanceForm.trainingEndTime}" class="form-control" />
-								</td>
-								-->
+
 <!-- Task26 end -->
 								<td class="w80">
 									<select th:name="|attendanceList[${stat.index}].blankTime|" class="form-control">

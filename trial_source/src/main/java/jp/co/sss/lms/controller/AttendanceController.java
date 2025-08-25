@@ -49,6 +49,7 @@ public class AttendanceController {
 		model.addAttribute("attendanceManagementDtoList", attendanceManagementDtoList);
 
 		
+		// 過去日未入力 Task25
 		int notEnteredCount = studentAttendanceService.getNotEnterCount(loginUserDto.getLmsUserId());
 		boolean hasNotEnterCount= notEnteredCount > 0;
 		model.addAttribute("hasNotEnterCount",hasNotEnterCount);
