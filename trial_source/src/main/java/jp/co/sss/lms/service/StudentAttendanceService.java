@@ -276,10 +276,10 @@ public class StudentAttendanceService {
 			if (dailyAttendanceForm.getTrainingEndTime() != null &&
 					dailyAttendanceForm.getTrainingEndTime() != "" &&
 					dailyAttendanceForm.getTrainingEndTime().length() != 0) {
-				//出勤時間（時）
+				//退勤時間（時）
 				dailyAttendanceForm.setTrainingEndHhValue(attendanceUtil.getTrainingHour(
 						attendanceManagementDto.getTrainingEndTime()));
-				//出勤時間（分）
+				//退勤時間（分）
 				dailyAttendanceForm.setTrainingEndMmValue(attendanceUtil.getTrainingMinute(
 						attendanceManagementDto.getTrainingEndTime()));
 				
@@ -360,10 +360,10 @@ public class StudentAttendanceService {
 			//Task26 時間と分を結合して出力
 			// 出勤時刻整形
 			TrainingTime trainingStartTime = null;
-			if (dailyAttendanceForm.getTrainingStartHhValue() != null
-				 && dailyAttendanceForm.getTrainingStartMmValue() != null) {
-					dailyAttendanceForm.setTrainingStartTime(dailyAttendanceForm.getTrainingStartHhValue() + ":"
-						+ dailyAttendanceForm.getTrainingStartMmValue());
+			if (dailyAttendanceForm.getTrainingStartHour() != ""
+				 && dailyAttendanceForm.getTrainingStartMinute() != "") {
+					dailyAttendanceForm.setTrainingStartTime(dailyAttendanceForm.getTrainingStartHour() + ":"
+						+ dailyAttendanceForm.getTrainingStartMinute());
 					trainingStartTime = new TrainingTime(dailyAttendanceForm.getTrainingStartTime());
 					tStudentAttendance.setTrainingStartTime(trainingStartTime.getFormattedString());
 			} else {
@@ -372,10 +372,10 @@ public class StudentAttendanceService {
 			
 			// 退勤時刻整形
 			TrainingTime trainingEndTime = null;
-			if (dailyAttendanceForm.getTrainingEndHhValue() != null
-			     && dailyAttendanceForm.getTrainingEndMmValue() != null) {
-					dailyAttendanceForm.setTrainingEndTime(dailyAttendanceForm.getTrainingEndHhValue() + ":"
-						+ dailyAttendanceForm.getTrainingEndMmValue());
+			if (dailyAttendanceForm.getTrainingEndHour() != ""
+			     && dailyAttendanceForm.getTrainingEndMinute() != "") {
+					dailyAttendanceForm.setTrainingEndTime(dailyAttendanceForm.getTrainingEndHour() + ":"
+						+ dailyAttendanceForm.getTrainingEndMinute());
 					trainingEndTime = new TrainingTime(dailyAttendanceForm.getTrainingEndTime());
 					tStudentAttendance.setTrainingEndTime(trainingEndTime.getFormattedString());
 			} else {

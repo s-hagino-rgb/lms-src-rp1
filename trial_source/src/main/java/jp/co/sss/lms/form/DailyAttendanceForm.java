@@ -62,4 +62,14 @@ public class DailyAttendanceForm {
 	private String trainingEndDisHour;
 	/** 退勤時間（分）(画面表示用)*/
 	private String trainingEndDisMinute;
-	}
+	/** 出勤時間（時）*/
+	private String trainingStartHour;
+	/** 出勤時間（分）*/
+	private String trainingStartMinute;
+	/** 退勤時間（時）*/
+	private String trainingEndHour;
+	/** 退勤時間（分）*/
+	private String trainingEndMinute;
+
+
+}
