@@ -140,41 +140,16 @@ public class AttendanceController {
 	public String complete(AttendanceForm attendanceForm, Model model, BindingResult result)
 			throws ParseException {
  
-		//Task27 更新前チェック
-		result = studentAttendanceService.updateCheck(attendanceForm, result);
-		if (attendanceForm.getErrorList() != null) {
-			model.addAttribute("errorList", attendanceForm.getErrorList());
-		}
-		System.out.println(result.getObjectName());
-		System.out.println(result.getErrorCount());
-		model.addAttribute("errorCount", result.getErrorCount());
 		
-		// 更新
-		if (result.hasErrors()) {
 			
-			// 一覧の再取得
-			List<AttendanceManagementDto> attendanceManagementDtoList = studentAttendanceService
+		String message = studentAttendanceService.update(attendanceForm);
+		model.addAttribute("message", message);
+		// 一覧の再取得
+		List<AttendanceManagementDto> attendanceManagementDtoList = studentAttendanceService
 				.getAttendanceManagement(loginUserDto.getCourseId(), loginUserDto.getLmsUserId());
-			model.addAttribute("attendanceManagementDtoList", attendanceManagementDtoList);
-
-			//勤怠フォームの生成
-			attendanceForm = studentAttendanceService
-				.setAttendanceForm(attendanceManagementDtoList);
-			model.addAttribute("attendanceForm", attendanceForm);
-			return "attendance/update";
-			
-		}else {
-		//Task27　ここまで
-			
-			String message = studentAttendanceService.update(attendanceForm);
-			model.addAttribute("message", message);
-			// 一覧の再取得
-			List<AttendanceManagementDto> attendanceManagementDtoList = studentAttendanceService
-				.getAttendanceManagement(loginUserDto.getCourseId(), loginUserDto.getLmsUserId());
-			model.addAttribute("attendanceManagementDtoList", attendanceManagementDtoList);
+		model.addAttribute("attendanceManagementDtoList", attendanceManagementDtoList);
 
 			return "attendance/detail";
-		}
 	}
 	
 	SimpleDateFormat datedate = new SimpleDateFormat();
